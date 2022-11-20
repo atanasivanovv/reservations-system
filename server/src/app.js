@@ -11,11 +11,7 @@ app.use(cors());
 app.set('json spaces', 2);
 app.use(express.json());
 
-app.use(
-	bodyParser.urlencoded({
-		extended: true,
-	})
-);
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // api routes
 // app.use('/', routes);
