@@ -1,7 +1,7 @@
-import express from 'express';
-// import routes from './routes';
-import bodyParser from 'body-parser';
-import cors from 'cors';
+const express = require('express');
+// const routes = require()
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
