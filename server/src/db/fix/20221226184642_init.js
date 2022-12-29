@@ -38,9 +38,8 @@ exports.up = function (knex) {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function (knex) {
-	return knex.schema
-		.dropTableIfExists('user')
-		.dropTableIfExists('venue')
-		.dropTableIfExists('reservation');
+exports.down = async function (knex) {
+	await knex.raw('DROP TABLE if exists "user" CASCADE');
+	await knex.raw('DROP TABLE if exists "venue" CASCADE');
+	await knex.raw('DROP TABLE if exists "reservation" CASCADE');
 };

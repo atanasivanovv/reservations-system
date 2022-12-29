@@ -4,7 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"migrate": "npx knex migrate:latest --knexfile ./src/db/knexfile.js",
+		"seed": "npx knex seed:run dev --knexfile ./src/db/knexfile.js",
+		"migrate:up": "npx knex migrate:latest --knexfile ./src/db/knexfile.js",
+		"migrate:down": "npx knex migrate:down --knexfile ./src/db/knexfile.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "nodemon --experimental-modules --es-module-specifier-resolution=node src/index"
 	},
