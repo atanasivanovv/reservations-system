@@ -9,6 +9,9 @@ module.exports = {
 			colors: {
 				main: '#1D4ED8',
 			},
+			backgroundImage: {
+				'canvas-background': 'url(./assets/canvas-bg.jpg)',
+			},
 		},
 	},
 	plugins: [require('flowbite/plugin')],
