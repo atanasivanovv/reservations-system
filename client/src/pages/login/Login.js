@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 import { ButtonGroup, Heading, VStack } from '@chakra-ui/react';
 import { Form, Formik } from 'formik';
 import { TextInput, Button } from 'flowbite-react';
@@ -26,12 +28,12 @@ const Login = () => {
 
 	return (
 		<Formik
-			initialValues={{ username: '', password: '' }}
+			initialValues={{ name: '', password: '' }}
 			validationSchema={Yup.object({
 				name: Yup.string()
-					.required('Username required!')
-					.min(6, 'Username too short!')
-					.max(28, 'Username too long!'),
+					.required('Name required!')
+					.min(6, 'Name too short!')
+					.max(28, 'Name too long!'),
 				password: Yup.string()
 					.required('Password required!')
 					.min(6, 'Password too short!')
@@ -48,9 +50,11 @@ const Login = () => {
 				spacing='1rem'
 			>
 				<Heading className='text-2xl'>Log In</Heading>
-				<Heading>Login for clients into the reservation system</Heading>
+				<Heading>
+					Login for clients into the reservation system
+				</Heading>
 				<TextField
-					name='username'
+					name='name'
 					placeholder='Enter name'
 					autoComplete='off'
 					label=''
@@ -67,7 +71,9 @@ const Login = () => {
 
 				<ButtonGroup pt='1rem'>
 					<Button type='submit'>Log In</Button>
-					<Button onClick={() => navigate('/register')}>Create Account</Button>
+					<Button onClick={() => navigate('/register')}>
+						Create Account
+					</Button>
 				</ButtonGroup>
 			</VStack>
 		</Formik>

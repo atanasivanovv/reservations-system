@@ -4,12 +4,12 @@ import { useField } from 'formik';
 import { Select, Label } from 'flowbite-react';
 
 const FormSelect = ({ label, disabled, ...props }) => {
-	const { name, children } = props;
+	const { name, children, className } = props;
 	const [field] = useField(props);
 	return (
 		<>
 			<div className='mb-1 block'>
-				<Label htmlFor={name} value={label} />
+				<Label htmlFor={name} value={label} {...className} />
 			</div>
 			<Select
 				id={name}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 import { UserContext } from './context';
+import BusinessRegistration from './pages/business/BusinessRegistration';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import NavigationBar from './pages/navbar/NavigationBar';
@@ -21,6 +22,10 @@ function App() {
 					<Route path='/bars' element={<Bars />} />
 					<Route path='/login' element={<Login />} />
 					<Route path='/register' element={<Register />} />
+					<Route
+						path='/business-register'
+						element={<BusinessRegistration />}
+					/>
 				</Routes>
 			</UserContext.Provider>
 		</>

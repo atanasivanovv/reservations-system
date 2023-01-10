@@ -1,72 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Formik, Form } from 'formik';
+import { Button } from 'flowbite-react';
+import { SingleDatepicker } from 'chakra-dayzed-datepicker';
+import { range } from 'lodash';
+
 import FormSelect from '../../components/SelectField';
 
 function VenueSearchFilter(props) {
+	const [defaultDate, setDefaultDate] = useState(new Date());
+	const handleSubmit = (values) => {};
+
 	return (
 		<Formik
 			initialValues={{
-				[fieldNames.name]: '',
-				[fieldNames.email]: '',
-				[fieldNames.password]: '',
-				[fieldNames.notifyForAllTickets]: true,
-				[fieldNames.role]: rolesMapper[roles.admin],
+				venueType: '',
+				reservationDate: '',
+				numOfPeople: '',
 			}}
-			validationSchema={validationSchema}
 			onSubmit={(values) => handleSubmit(values)}
 		>
 			{() => (
 				<Form>
-					<div className='space-y-3 px-2 pb-2 sm:pb-6 lg:px-6 xl:pb-6'>
-						<h3 className='text-xl font-medium text-gray-900 dark:text-white'>
-							Add Team Member
-						</h3>
-
-						<FormSelect
-							name={fieldNames.name}
-							type='text'
-							label='Name'
-							placeholder='Name'
-							required
-						/>
-
-						<FormSelect
-							name={fieldNames.email}
-							type='email'
-							label='Email'
-							placeholder='email@macstadium.com'
-							required
-						/>
-						<FormSelect
-							name={fieldNames.password}
-							type='password'
-							label='Password'
-							placeholder='******'
-							required
-						/>
-
-						<FormSelect name={fieldNames.role} label='Team Member Role' required>
-							{Object.values(roles).map((role) => (
-								<option key={rolesMapper[role]} value={rolesMapper[role]}>
-									{role}
-								</option>
-							))}
-						</FormSelect>
-
-						<div className='w-full mt-3'>
-							<Button type='submit' disabled={loading}>
-								Submit
-							</Button>
+					<div className='flex row w-full mt-5 justify-center space-x-3 px-2 pb-2 sm:pb-6 lg:px-6 xl:pb-6'>
+						<div className='w-1/3'>
+							<p>Venue Type</p>
+							<FormSelect
+								name='venueType'
+								type='text'
+								label=''
+								placeholder='Restaurant'
+								required
+							>
+								<option>Restaurant</option>
+								<option>Club</option>
+								<option>Bar</option>
+							</FormSelect>
 						</div>
-
-						{addTeamMemberError && (
-							<div className='mb-2' data-testid={testIds.addTeamMemberError}>
-								<ErrorInfo
-									error={addTeamMemberError}
-									onDismiss={() => setAddTeamMemberError(null)}
+						<div className='w-1/3'>
+							<p>How Many People</p>
+							<FormSelect
+								name='numOfPeople'
+								type='text'
+								label=''
+								placeholder='People'
+								required
+							>
+								{range(14).map((i) => (
+									<option key={`key-${i}`}>{i + 1}</option>
+								))}
+							</FormSelect>
+						</div>
+						<div className='w-1/3'>
+							<p>Reservation Date</p>
+							<div className='border-black border-2 p-1'>
+								<SingleDatepicker
+									name='date-input'
+									date={defaultDate}
+									onDateChange={setDefaultDate}
 								/>
 							</div>
-						)}
+						</div>
+						<Button type='submit' className='mt-4'>
+							Search
+						</Button>
 					</div>
 				</Form>
 			)}
