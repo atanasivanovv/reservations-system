@@ -1,17 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { Navbar } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 import LocationDropdown from './dropdown/LocationDropdown';
 import UserDropdown from './dropdown/UserDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faUser,
-	faMartiniGlass,
-	faUtensils,
-} from '@fortawesome/free-solid-svg-icons';
+import { faUser, faMartiniGlass, faUtensils } from '@fortawesome/free-solid-svg-icons';
 
-function NavigationBar({userLogged}) {
+function NavigationBar({ userLogged }) {
 	return (
 		<Navbar fluid={true} rounded={true}>
 			<Navbar.Brand href='/'>
@@ -29,7 +25,11 @@ function NavigationBar({userLogged}) {
 				<div className='mt-2'>
 					<Link to='/login'>
 						<div className='text-main'>
-							{!userLogged && (<><FontAwesomeIcon icon={faUser} /> Login</>)}
+							{!userLogged && (
+								<>
+									<FontAwesomeIcon icon={faUser} /> Login
+								</>
+							)}
 						</div>
 					</Link>
 				</div>
@@ -44,6 +44,6 @@ function NavigationBar({userLogged}) {
 
 NavigationBar.propTypes = {
 	userLogged: PropTypes.bool.isRequired,
-}
+};
 
 export default NavigationBar;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 import { UserContext } from './context';
@@ -15,7 +15,7 @@ function App() {
 		<>
 			<NavigationBar />
 
-			<UserContext.Provider value={{userLogged, setUserLogged}}>
+			<UserContext.Provider value={{ userLogged, setUserLogged }}>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/bars' element={<Bars />} />
