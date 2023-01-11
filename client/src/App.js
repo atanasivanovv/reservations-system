@@ -20,7 +20,7 @@ function App() {
 
 	return (
 		<>
-			<NavigationBar />
+			<NavigationBar userLogged={userLogged} />
 
 			<UserContext.Provider value={{ userLogged, setUserLogged }}>
 				<Routes>

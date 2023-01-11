@@ -1,8 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import GooglePayButton from '@google-pay/button-react';
 
-function GooglePay(props) {
+function GooglePay({ setProcessingPayment }) {
+	const navigate = useNavigate();
+
+	const handlePaymentResolved = () => {
+		setProcessingPayment(true);
+		setTimeout(() => {
+			setProcessingPayment(false);
+			navigate('/');
+		}, 1000);
+	};
+
 	return (
 		<GooglePayButton
 			environment='TEST'
@@ -53,6 +64,7 @@ function GooglePay(props) {
 				console.log('On Payment Data Changed', paymentData);
 				return {};
 			}}
+			onCancel={handlePaymentResolved}
 			existingPaymentMethodRequired='false'
 			buttonColor='black'
 			buttonType='Buy'
@@ -60,6 +72,8 @@ function GooglePay(props) {
 	);
 }
 
-GooglePay.propTypes = {};
+GooglePay.propTypes = {
+	setProcessingPayment: PropTypes.func.isRequired,
+};
 
 export default GooglePay;

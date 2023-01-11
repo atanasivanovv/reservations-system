@@ -41,7 +41,7 @@ function NavigationBar({ userLogged }) {
 					<Link to='/'>Home</Link>
 				</div>
 				<div className='mt-2'>
-					<Link to='/about-us'>About Us</Link>
+					<Link to='/'>About Us</Link>
 				</div>
 				<LocationDropdown />
 			</Navbar.Collapse>
