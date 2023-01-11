@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { ButtonGroup, Heading, VStack } from '@chakra-ui/react';
 import { Form, Formik } from 'formik';
-import { TextInput, Button } from 'flowbite-react';
+import { Button } from 'flowbite-react';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
@@ -12,6 +12,8 @@ import TextField from '../../components/TextField';
 const Login = () => {
 	const navigate = useNavigate();
 	const [error, setError] = useState();
+
+	console.error(error);
 
 	const handleOnSubmit = async (values, actions) => {
 		setError(null);

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import { Button } from 'flowbite-react';
 import { SingleDatepicker } from 'chakra-dayzed-datepicker';

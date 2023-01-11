@@ -3,13 +3,10 @@ import { ButtonGroup, Heading, VStack } from '@chakra-ui/react';
 import TextField from '../../components/TextField';
 import { Button } from 'flowbite-react';
 import { Form, Formik } from 'formik';
-import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
 function BusinessRegistration(props) {
-	const navigate = useNavigate();
-
 	return (
 		<Formik
 			initialValues={{ name: '', email: '', password: '' }}

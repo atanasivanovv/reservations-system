@@ -1,21 +1,23 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+
 import Canvas from './Canvas';
 import VenueSearchFilter from './VenueSearchFilter';
-import Restaurants from '../venue/Restaurants';
-import Bars from '../venue/Bars';
-import Clubs from '../venue/Clubs';
+import DownloadCard from '../mobile-download/DownloadCard';
+import VenueTypeFilter from './VenueTypeFilter';
 
 function Home(props) {
 	return (
 		<>
 			<Canvas />
 			<VenueSearchFilter />
+			<VenueTypeFilter />
 
 			<div className='px-6'>
-				<Restaurants />
-				<Bars />
-				<Clubs />
+				<Outlet />
 			</div>
+
+			<DownloadCard />
 		</>
 	);
 }

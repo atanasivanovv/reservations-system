@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 import LocationDropdown from './dropdown/LocationDropdown';
 import UserDropdown from './dropdown/UserDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faMartiniGlass, faUtensils } from '@fortawesome/free-solid-svg-icons';
+import {
+	faUser,
+	faMartiniGlass,
+	faUtensils,
+} from '@fortawesome/free-solid-svg-icons';
 
 function NavigationBar({ userLogged }) {
 	return (
@@ -13,7 +17,7 @@ function NavigationBar({ userLogged }) {
 			<Navbar.Brand href='/'>
 				<FontAwesomeIcon icon={faMartiniGlass} />
 				<span className='self-center mx-2 whitespace-nowrap text-xl font-semibold dark:text-white'>
-					Res. System
+					Reservation System
 				</span>
 				<FontAwesomeIcon icon={faUtensils} />
 			</Navbar.Brand>
@@ -35,6 +39,9 @@ function NavigationBar({ userLogged }) {
 				</div>
 				<div className='mt-2'>
 					<Link to='/'>Home</Link>
+				</div>
+				<div className='mt-2'>
+					<Link to='/about-us'>About Us</Link>
 				</div>
 				<LocationDropdown />
 			</Navbar.Collapse>
