@@ -41,7 +41,7 @@ const registerBusiness = async (req, res, next) => {
 			city,
 			phone,
 			password: hashedPass,
-			hasBusiness: true,
+			has_business: true,
 		});
 
 		await Venue.query().insert({
