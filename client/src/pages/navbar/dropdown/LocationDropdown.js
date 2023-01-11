@@ -1,6 +1,13 @@
 import React from 'react';
 import { Dropdown } from 'flowbite-react';
 
+export const Locations = {
+	SOFIA: 'Sofia',
+	VARNA: 'Varna',
+	PLOVDIV: 'Plovdiv',
+	BURGAS: 'Burgas',
+};
+
 function LocationDropdown(props) {
 	return (
 		<Dropdown
@@ -9,14 +16,11 @@ function LocationDropdown(props) {
 			dismissOnClick={false}
 			className='max-h-48 overflow-x-hidden overflow-y-scroll'
 		>
-			<Dropdown.Item>Loop (map)</Dropdown.Item>
-			<Dropdown.Item>over every</Dropdown.Item>
-			<Dropdown.Item>possible</Dropdown.Item>
-			<Dropdown.Item>BG location</Dropdown.Item>
-			<Dropdown.Item>BG location</Dropdown.Item>
-			<Dropdown.Item>BG location</Dropdown.Item>
-			<Dropdown.Item>BG location</Dropdown.Item>
-			<Dropdown.Item>BG location</Dropdown.Item>
+			{Object.values(Locations).map((location, idx) => (
+				<Dropdown.Item key={`${location}-${idx}`}>
+					{location}
+				</Dropdown.Item>
+			))}
 		</Dropdown>
 	);
 }
