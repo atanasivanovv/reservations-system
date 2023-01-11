@@ -75,6 +75,7 @@ function Register(props) {
 				</ButtonGroup>
 
 				<Link to={'/login'}>Already have an account?</Link>
+				<Link to={'/business-register'}>Register as a business?</Link>
 			</VStack>
 		</Formik>
 	);

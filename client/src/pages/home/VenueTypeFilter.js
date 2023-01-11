@@ -6,7 +6,7 @@ function VenueTypeFilter() {
 	const navigate = useNavigate();
 
 	return (
-		<div className='flex justify-center space-x-10 mt-10 px-5 py-7 bg-gray-400'>
+		<div className='flex justify-center space-x-10 mt-10 px-5 py-7 bg-gray-500'>
 			<h2 className='mb-2 text-3xl font-bold text-white w-1/4'>
 				Choose venue category:
 			</h2>

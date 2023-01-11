@@ -4,7 +4,7 @@ import { Card } from '@chakra-ui/react';
 
 function DownloadCard() {
 	return (
-		<div className='mt-10 px-5 py-7 bg-gray-400'>
+		<div className='mt-10 px-5 py-7 bg-gray-500'>
 			<Card className='text-center'>
 				<h5 className='mb-2 text-3xl font-bold text-white dark:text-white'>
 					Make reservations on the go!

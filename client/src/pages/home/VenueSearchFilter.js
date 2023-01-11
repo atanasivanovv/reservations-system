@@ -4,7 +4,7 @@ import { Button } from 'flowbite-react';
 import { SingleDatepicker } from 'chakra-dayzed-datepicker';
 import { range } from 'lodash';
 
-import FormSelect from '../../components/SelectField';
+import FormSelect from '../../components/FormSelect';
 
 function VenueSearchFilter(props) {
 	const [defaultDate, setDefaultDate] = useState(new Date());
