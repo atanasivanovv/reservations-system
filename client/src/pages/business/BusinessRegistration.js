@@ -66,7 +66,6 @@ function BusinessRegistration(props) {
 	const [processingPayment, setProcessingPayment] = useState(false);
 
 	const handleSubmit = async (values) => {
-		console.log(values);
 		const { confirmPassword, ...data } = values;
 
 		const response = await axios
@@ -79,7 +78,6 @@ function BusinessRegistration(props) {
 		if (response && response.data) {
 			setError(null);
 			setRegistrationSuccess(response.data);
-			console.log(registrationSuccess);
 		}
 	};
 

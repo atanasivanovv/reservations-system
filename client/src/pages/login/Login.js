@@ -18,13 +18,13 @@ const Login = () => {
 	const handleOnSubmit = async (values, actions) => {
 		setError(null);
 		const response = await axios
-			.post('http://localhost:3000/api/login', values)
+			.post('http://localhost:3000/login', values)
 			.catch((err) => {
 				if (err && err.response) setError(err.response.data.message);
 			});
 
 		if (response) {
-			alert('Welcome back in. Authenticating...');
+			navigate('/');
 		}
 	};
 
