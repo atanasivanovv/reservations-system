@@ -27,28 +27,19 @@ function App() {
 					{/* Home */}
 					<Route path='/' element={<Home />}>
 						<Route path='' element={<AllVenues />} />
-						<Route
-							path='restaurants'
-							element={<Restaurants />}
-						></Route>
+						<Route path='restaurants' element={<Restaurants />}></Route>
 
 						<Route path='bars' element={<Bars />} />
 						<Route path='clubs' element={<Clubs />} />
 					</Route>
 
 					{/* Details */}
-					<Route
-						path='/restaurants/:restaurantId'
-						element={<RestaurantDetails />}
-					/>
+					<Route path='/restaurants/:restaurantId' element={<RestaurantDetails />} />
 
 					{/* Login/Register */}
 					<Route path='/login' element={<Login />} />
 					<Route path='/register' element={<Register />} />
-					<Route
-						path='/business-register'
-						element={<BusinessRegistration />}
-					/>
+					<Route path='/business-register' element={<BusinessRegistration />} />
 
 					<Route path='/about-us' element={<AboutUs />} />
 					<Route path='*' element={<NotFound />} />

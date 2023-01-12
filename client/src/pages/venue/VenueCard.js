@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { Button, Card, Rating } from 'flowbite-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { range } from 'lodash';
+import { UserContext } from '../../context';
 
 function VenueCard({ id, name, img, location, stars }) {
 	const navigate = useNavigate();
+	const { userLogged } = useContext(UserContext);
 
 	return (
 		<div className='max-w-sm'>
@@ -22,7 +24,7 @@ function VenueCard({ id, name, img, location, stars }) {
 				</h5>
 
 				<Button
-					onClick={() => navigate(`/restaurants/${id}`)}
+					onClick={() => navigate(userLogged ? `/restaurants/${id}` : '/login')}
 					type='submit w-1/3 justify-end'
 				>
 					Reserve

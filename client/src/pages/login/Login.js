@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { ButtonGroup, Heading, VStack } from '@chakra-ui/react';
 import { Form, Formik } from 'formik';
@@ -8,22 +8,23 @@ import { useNavigate } from 'react-router';
 import axios from 'axios';
 
 import TextField from '../../components/TextField';
+import { UserContext } from '../../context';
 
 const Login = () => {
+	const { setUserLogged } = useContext(UserContext);
 	const navigate = useNavigate();
 	const [error, setError] = useState();
 
-	console.error(error);
-
-	const handleOnSubmit = async (values, actions) => {
+	const handleOnSubmit = async (values) => {
 		setError(null);
 		const response = await axios
 			.post('http://localhost:3000/login', values)
 			.catch((err) => {
-				if (err && err.response) setError(err.response.data.message);
+				if (err && err.response) setError(err.response.msg);
 			});
 
 		if (response) {
+			setUserLogged(true);
 			navigate('/');
 		}
 	};
@@ -41,7 +42,7 @@ const Login = () => {
 					.min(6, 'Password too short!')
 					.max(28, 'Password too long!'),
 			})}
-			onSubmit={(values, actions) => handleOnSubmit(values, actions)}
+			onSubmit={(values) => handleOnSubmit(values)}
 		>
 			<VStack
 				as={Form}
@@ -52,9 +53,7 @@ const Login = () => {
 				spacing='1rem'
 			>
 				<Heading className='text-2xl'>Log In</Heading>
-				<Heading>
-					Login for clients into the reservation system
-				</Heading>
+				<Heading>Login for clients into the reservation system</Heading>
 				<TextField
 					name='name'
 					placeholder='Enter name'
@@ -65,6 +64,7 @@ const Login = () => {
 
 				<TextField
 					name='password'
+					type='password'
 					placeholder='Enter password'
 					autoComplete='off'
 					label=''
@@ -73,9 +73,7 @@ const Login = () => {
 
 				<ButtonGroup pt='1rem'>
 					<Button type='submit'>Log In</Button>
-					<Button onClick={() => navigate('/register')}>
-						Create Account
-					</Button>
+					<Button onClick={() => navigate('/register')}>Create Account</Button>
 				</ButtonGroup>
 			</VStack>
 		</Formik>

@@ -50,7 +50,7 @@ function Bars(props) {
 	return (
 		<div className='flex colum flex-wrap justify-center border-b-2 border-gray-400 pb-10'>
 			{bars.map((bar) => (
-				<div key={bar.id} className='w-1/5 mt-10 space-x-5'>
+				<div key={bar.id} className='w-1/4 mt-10 space-x-5'>
 					<VenueCard
 						id={bar.id}
 						name={bar.name}

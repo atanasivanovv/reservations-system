@@ -20,17 +20,14 @@ const registerUser = async (req, res, next) => {
 
 		res.status(200).send('Logged successfully!');
 	} catch (err) {
-		res
-			.status(500)
-			.send('Something went wrong when registering user');
+		res.status(500).send('Something went wrong when registering user');
 		next(err);
 	}
 };
 
 const registerBusiness = async (req, res, next) => {
 	const { name, email, phone, password } = req.body;
-	const { venueName, venuePhone, type, city, address, capacity } =
-		req.body;
+	const { venueName, venuePhone, type, city, address, capacity } = req.body;
 
 	try {
 		const hashedPass = await bcrypt.hash(password, saltRounds);
@@ -45,6 +42,7 @@ const registerBusiness = async (req, res, next) => {
 		});
 
 		await Venue.query().insert({
+			id: 4,
 			name: venueName,
 			type,
 			city,

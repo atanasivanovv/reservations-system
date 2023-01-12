@@ -48,10 +48,7 @@ function GooglePay({ setProcessingPayment }) {
 					countryCode: 'US',
 				},
 				shippingAddressRequired: true,
-				callbackIntents: [
-					'SHIPPING_ADDRESS',
-					'PAYMENT_AUTHORIZATION',
-				],
+				callbackIntents: ['SHIPPING_ADDRESS', 'PAYMENT_AUTHORIZATION'],
 			}}
 			onLoadPaymentData={(paymentRequest) => {
 				console.log('Success', paymentRequest);

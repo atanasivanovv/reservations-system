@@ -82,7 +82,7 @@ function Restaurants(props) {
 	return (
 		<div className='flex colum flex-wrap justify-center border-b-2 border-gray-400 pb-10'>
 			{restaurants.map((rest) => (
-				<div key={rest.id} className='w-1/5 mt-10 space-x-5'>
+				<div key={rest.id} className='w-1/4 mt-10 space-x-5'>
 					<VenueCard
 						id={rest.id}
 						name={rest.name}

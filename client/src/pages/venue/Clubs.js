@@ -58,7 +58,7 @@ function Clubs() {
 	return (
 		<div className='flex colum flex-wrap justify-center'>
 			{clubs.map((club) => (
-				<div key={club.id} className='w-1/5 mt-10 space-x-5'>
+				<div key={club.id} className='w-1/4 mt-10 space-x-5'>
 					<VenueCard
 						id={club.id}
 						name={club.name}
